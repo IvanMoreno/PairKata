@@ -2,7 +2,7 @@ namespace PairKata.Tests;
 
 public class Bag
 {
-    int capacity;
+    readonly int capacity;
     int itemsCount;
 
     private Bag(int capacity)
