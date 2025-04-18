@@ -40,4 +40,12 @@ public class Tests
         
         Assert.IsFalse(sut.IsEmpty());
     }
+
+    [Test]
+    public void BagIsNotFullByDefault()
+    {
+        Bag sut = new Bag();
+        
+        Assert.IsFalse(sut.IsFull());
+    }
 }

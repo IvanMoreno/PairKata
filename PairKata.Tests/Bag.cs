@@ -12,4 +12,9 @@ public class Bag
     {
         isEmpty = false;
     }
+
+    public bool IsFull()
+    {
+        return false;
+    }
 }
