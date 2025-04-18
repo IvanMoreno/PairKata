@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal;
+
 namespace PairKata.Tests;
 /*
  link: https://www.codurance.com/katas/bags
@@ -27,5 +29,15 @@ public class Tests
         Bag sut = new Bag();
         
         Assert.IsTrue(sut.IsEmpty());
+    }
+
+    [Test]
+    public void BagIsNotEmptyAfterAddingItem()
+    {
+        Bag sut = new Bag();
+
+        sut.AddItem("Leather");
+        
+        Assert.IsFalse(sut.IsEmpty());
     }
 }

@@ -2,8 +2,14 @@ namespace PairKata.Tests;
 
 public class Bag
 {
+    bool isEmpty = true;
     public bool IsEmpty()
     {
-        return true;
+        return isEmpty;
+    }
+
+    public void AddItem(string leather)
+    {
+        isEmpty = false;
     }
 }
