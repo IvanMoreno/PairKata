@@ -9,7 +9,7 @@ namespace PairKata.Tests;
     - [x] bags have capacity of 4
     - [x] items are added to the backpack
     - [x] If the backpack happens to be full, the item is added to the next available bag.
-    - Items are not just strings, they have types.
+    - [x] Items are not just strings, they have types.
     - There is a Sorting spell
     - Each bag can have a category, during the sorting spell only the items that match the category can be placed there.
          {
