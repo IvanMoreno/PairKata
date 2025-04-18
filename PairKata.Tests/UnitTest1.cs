@@ -58,4 +58,14 @@ public class Tests
         
         Assert.IsTrue(sut.IsFull());
     }
+
+    [Test]
+    public void BagIsNotFullUntillAllItemsHaveBeenAdded()
+    {
+        Bag sut = Bag.Empty(2);
+        
+        sut.AddItem("Leather");
+        
+        Assert.IsFalse(sut.IsFull());
+    }
 }

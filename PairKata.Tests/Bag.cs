@@ -3,10 +3,11 @@ namespace PairKata.Tests;
 public class Bag
 {
     bool isEmpty = true;
+    int capacity;
 
     private Bag(int capacity)
     {
-        
+        this.capacity = capacity;
     }
 
     public static Bag Empty( int capacity = 4 )
@@ -26,7 +27,7 @@ public class Bag
 
     public bool IsFull()
     {
-        return !isEmpty;
+        return !isEmpty && capacity == 1;
     }
     
 }
