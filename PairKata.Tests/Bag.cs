@@ -4,6 +4,7 @@ public class Bag
 {
     bool isEmpty = true;
     int capacity;
+    int itemsCount;
 
     private Bag(int capacity)
     {
@@ -23,10 +24,11 @@ public class Bag
     public void AddItem(string leather)
     {
         isEmpty = false;
+        itemsCount++;
     }
 
     public bool IsFull()
     {
-        return !isEmpty && capacity == 1;
+        return itemsCount == capacity;
     }
 }

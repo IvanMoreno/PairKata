@@ -68,4 +68,15 @@ public class Tests
         
         Assert.IsFalse(sut.IsFull());
     }
+
+    [Test]
+    public void FillBagWhenAddingItemsUntilReachingCapacity()
+    {
+        Bag sut = Bag.Empty(2);
+        
+        sut.AddItem("Leather");
+        sut.AddItem("Leather");
+        
+        Assert.IsTrue(sut.IsFull());
+    }
 }
