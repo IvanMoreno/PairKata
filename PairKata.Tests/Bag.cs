@@ -22,6 +22,9 @@ public class Bag
 
     public void AddItem(string leather)
     {
+        if (IsFull())
+            throw new InvalidOperationException("Cannot add item when bag is full");
+            
         itemsCount++;
     }
 
