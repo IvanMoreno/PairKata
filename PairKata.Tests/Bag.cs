@@ -18,7 +18,7 @@ public class Bag
 
     public bool IsEmpty()
     {
-        return isEmpty;
+        return itemsCount == 0;
     }
 
     public void AddItem(string leather)
