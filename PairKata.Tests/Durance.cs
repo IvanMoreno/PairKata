@@ -19,12 +19,6 @@ public class Durance
 
     public void StoreItem(string item)
     {
-        foreach (var bag in storage)
-        {
-            if (bag.IsFull())
-                continue;
-            bag.AddItem(item);
-            return;
-        }
+        storage.FirstOrDefault(bag => !bag.IsFull())?.AddItem(item);
     }
 }
