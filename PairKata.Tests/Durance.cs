@@ -15,6 +15,11 @@ public class Durance
     {
         if (backpack.IsFull())
         {
+            if (bags[0].IsFull())
+            {
+                bags[1].AddItem(item);
+                return;
+            }
             bags[0].AddItem(item);
             return;
         }
