@@ -99,18 +99,3 @@ public class Tests
         Assert.IsFalse(backpack.IsEmpty());
     }
 }
-
-public class Durance
-{
-    readonly Bag backpack;
-
-    public Durance(Bag backpack)
-    {
-        this.backpack = backpack;
-    }
-
-    public void StoreItem(string iron)
-    {
-        backpack.AddItem(iron);
-    }
-}
