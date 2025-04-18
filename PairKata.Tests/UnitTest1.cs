@@ -130,6 +130,14 @@ public class Tests
         
         Assert.IsTrue(sut.BelongsToCategory("clothes"));
     }
+
+    [Test]
+    public void BelongOnlyToConfiguredCategory()
+    {
+        Item sut = new Item("Leather", "clothes");
+        
+        Assert.IsFalse(sut.BelongsToCategory("metals"));
+    }
 }
 
 public class Item
@@ -138,11 +146,8 @@ public class Item
 
     public Item(string name, string category)
     {
-        
+        this.category = category;
     }
 
-    public bool BelongsToCategory(string category)
-    {
-        return true;
-    }
+    public bool BelongsToCategory(string category) => this.category == category;
 }
