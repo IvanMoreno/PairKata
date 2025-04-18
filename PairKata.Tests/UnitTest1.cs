@@ -3,10 +3,10 @@ using NUnit.Framework.Internal;
 namespace PairKata.Tests;
 /*
  link: https://www.codurance.com/katas/bags
-    - we need a backpack that can have items stored.
-    - the backpack has capacity of 8
-    - we need bags that can have items stored.
-    - bags have capacity of 4
+    - [x] we need a backpack that can have items stored.
+    - [x] the backpack has capacity of 8
+    - [x] we need bags that can have items stored.
+    - [x] bags have capacity of 4
     - items are added to the backpack
     - If the backpack happens to be full, the item is added to the next available bag.
     - There is a Sorting spell
