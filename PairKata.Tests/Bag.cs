@@ -2,7 +2,6 @@ namespace PairKata.Tests;
 
 public class Bag
 {
-    bool isEmpty = true;
     int capacity;
     int itemsCount;
 
@@ -23,7 +22,6 @@ public class Bag
 
     public void AddItem(string leather)
     {
-        isEmpty = false;
         itemsCount++;
     }
 
