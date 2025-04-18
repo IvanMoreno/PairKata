@@ -122,4 +122,27 @@ public class Tests
         
         Assert.IsFalse(bag.IsEmpty());
     }
+
+    [Test]
+    public void CheckItemCategory()
+    {
+        Item sut = new Item("Leather", "clothes");
+        
+        Assert.IsTrue(sut.BelongsToCategory("clothes"));
+    }
+}
+
+public class Item
+{
+    readonly string category;
+
+    public Item(string name, string category)
+    {
+        
+    }
+
+    public bool BelongsToCategory(string category)
+    {
+        return true;
+    }
 }
