@@ -26,7 +26,7 @@ public class Tests
     [Test]
     public void IsBagEmpty()
     {
-        Bag sut = new Bag();
+        Bag sut = Bag.Empty();
         
         Assert.IsTrue(sut.IsEmpty());
     }
@@ -34,7 +34,7 @@ public class Tests
     [Test]
     public void BagIsNotEmptyAfterAddingItem()
     {
-        Bag sut = new Bag();
+        Bag sut = Bag.Empty();
 
         sut.AddItem("Leather");
         
@@ -44,8 +44,18 @@ public class Tests
     [Test]
     public void BagIsNotFullByDefault()
     {
-        Bag sut = new Bag();
+        Bag sut = Bag.Empty();
         
         Assert.IsFalse(sut.IsFull());
+    }
+
+    [Test]
+    public void BagIsFullAfter()
+    {
+        Bag sut = Bag.Empty(1);
+        
+        sut.AddItem("Leather");
+        
+        Assert.IsTrue(sut.IsFull());
     }
 }
