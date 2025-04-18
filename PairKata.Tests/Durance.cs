@@ -15,13 +15,13 @@ public class Durance
     {
         if (backpack.IsFull())
         {
-            if (bags[0].IsFull())
+            foreach (var bag in bags)
             {
-                bags[1].AddItem(item);
+                if (bag.IsFull())
+                    continue;
+                bag.AddItem(item);
                 return;
             }
-            bags[0].AddItem(item);
-            return;
         }
             
         backpack.AddItem(item);
