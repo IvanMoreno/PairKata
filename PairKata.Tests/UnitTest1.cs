@@ -29,11 +29,3 @@ public class Tests
         Assert.AreEqual(sut.IsEmpty( ), true);
     }
 }
-
-public class Bag
-{
-    public bool IsEmpty()
-    {
-        return true;
-    }
-}
