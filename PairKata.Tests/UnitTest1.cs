@@ -50,7 +50,7 @@ public class Tests
     }
 
     [Test]
-    public void BagIsFullAfter()
+    public void BagIsFullAfterAddingItem()
     {
         Bag sut = Bag.Empty(1);
         
