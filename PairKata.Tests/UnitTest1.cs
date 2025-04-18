@@ -98,4 +98,15 @@ public class Tests
         
         Assert.IsFalse(backpack.IsEmpty());
     }
+
+    [Test]
+    public void IfBackpackIsFullAddItemToBag()
+    {
+        Bag bag = Bag.Empty();
+        Durance sut = new Durance(Bag.Empty(0), bag);
+        
+        sut.StoreItem("Iron");
+        
+        Assert.IsFalse(bag.IsEmpty());
+    }
 }
