@@ -84,7 +84,7 @@ public class Tests
     [Test]
     public void DuranceCanBeInstantiated()
     {
-        Durance sut = new Durance(Bag.Empty());
+        Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty());
         
         Assert.IsTrue(true);
     }
@@ -93,7 +93,7 @@ public class Tests
     public void DuranceStoresItemInBackpack()
     {
         Bag backpack = Bag.Empty();
-        Durance sut = new Durance(backpack);
+        Durance sut = Durance.CreateWithBackpackAndBags(backpack);
 
         sut.StoreItem("Iron");
         
@@ -104,7 +104,7 @@ public class Tests
     public void IfBackpackIsFullAddItemToBag()
     {
         Bag bag = Bag.Empty();
-        Durance sut = new Durance(Bag.Empty(0), bag);
+        Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), bag);
         
         sut.StoreItem("Iron");
         
@@ -116,7 +116,7 @@ public class Tests
     {
         Bag fullBag = Bag.Empty(0);
         Bag bag = Bag.Empty();
-        Durance sut = new Durance(Bag.Empty(0), fullBag, bag);
+        Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), fullBag, bag);
         
         sut.StoreItem("Iron");
         
