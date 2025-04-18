@@ -22,8 +22,18 @@ namespace PairKata.Tests;
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void IsBagEmpty()
     {
-        Assert.Pass();
+        Bag sut = new Bag();
+        
+        Assert.AreEqual(sut.IsEmpty( ), true);
+    }
+}
+
+public class Bag
+{
+    public bool IsEmpty()
+    {
+        return true;
     }
 }
