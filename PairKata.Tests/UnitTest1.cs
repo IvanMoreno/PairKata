@@ -138,9 +138,18 @@ public class Tests
         
         Assert.IsFalse(sut.BelongsToCategory("metals"));
     }
+
+    [Test]
+    public void ItemEquals()
+    {
+        Item leather = new Item("Leather", "clothes");
+        Item sameLeather = new Item("Leather", "clothes");
+        
+        Assert.AreEqual(leather, sameLeather);
+    }
 }
 
-public class Item
+public struct Item
 {
     readonly string category;
 
