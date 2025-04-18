@@ -2,28 +2,23 @@ namespace PairKata.Tests;
 
 public class Durance
 {
-    readonly Bag backpack;
-    readonly List<Bag> bags;
+    readonly List<Bag> storage;
 
     public Durance(Bag backpack, params Bag[] bags)
     {
-        this.backpack = backpack;
-        this.bags = bags.ToList();
+        storage = new List<Bag>();
+        storage.Add(backpack);
+        storage.AddRange(bags);
     }
 
     public void StoreItem(string item)
     {
-        if (backpack.IsFull())
+        foreach (var bag in storage)
         {
-            foreach (var bag in bags)
-            {
-                if (bag.IsFull())
-                    continue;
-                bag.AddItem(item);
-                return;
-            }
+            if (bag.IsFull())
+                continue;
+            bag.AddItem(item);
+            return;
         }
-            
-        backpack.AddItem(item);
     }
 }
