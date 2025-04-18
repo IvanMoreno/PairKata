@@ -1,5 +1,5 @@
 namespace PairKata.Tests;
-
+ 
 public class Tests
 {
     [Test]
