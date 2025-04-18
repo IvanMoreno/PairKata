@@ -147,14 +147,25 @@ public class Tests
         
         Assert.AreEqual(leather, sameLeather);
     }
+    
+    [Test]
+    public void ItemNotEquals()
+    {
+        Item leather = new Item("Leather", "clothes");
+        Item iron = new Item("Iron", "clothes");
+        
+        Assert.AreNotEqual(leather, iron);
+    }
 }
 
 public struct Item
 {
+    readonly string name;
     readonly string category;
 
     public Item(string name, string category)
     {
+        this.name = name;
         this.category = category;
     }
 
