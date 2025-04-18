@@ -20,16 +20,16 @@ public class Bag
         return itemsCount == 0;
     }
 
-    public void AddItem(string leather)
+    public bool IsFull()
+    {
+        return itemsCount == capacity;
+    }
+
+    public void AddItem(Item item)
     {
         if (IsFull())
             throw new InvalidOperationException("Cannot add item when bag is full");
             
         itemsCount++;
-    }
-
-    public bool IsFull()
-    {
-        return itemsCount == capacity;
     }
 }

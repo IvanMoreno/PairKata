@@ -17,7 +17,7 @@ public class Durance
         return new Durance(storage);
     }
 
-    public void StoreItem(string item)
+    public void StoreItem(Item item)
     {
         storage.FirstOrDefault(bag => !bag.IsFull())?.AddItem(item);
     }

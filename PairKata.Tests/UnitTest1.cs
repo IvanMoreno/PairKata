@@ -37,7 +37,7 @@ public class Tests
     {
         Bag sut = Bag.Empty();
 
-        sut.AddItem("Leather");
+        sut.AddItem(Item.Leather());
         
         Assert.IsFalse(sut.IsEmpty());
     }
@@ -55,7 +55,7 @@ public class Tests
     {
         Bag sut = Bag.Empty(1);
         
-        sut.AddItem("Leather");
+        sut.AddItem(Item.Leather());
         
         Assert.IsTrue(sut.IsFull());
     }
@@ -65,7 +65,7 @@ public class Tests
     {
         Bag sut = Bag.Empty(2);
         
-        sut.AddItem("Leather");
+        sut.AddItem(Item.Leather());
         
         Assert.IsFalse(sut.IsFull());
     }
@@ -75,8 +75,8 @@ public class Tests
     {
         Bag sut = Bag.Empty(2);
         
-        sut.AddItem("Leather");
-        sut.AddItem("Leather");
+        sut.AddItem(Item.Leather());
+        sut.AddItem(Item.Leather());
         
         Assert.IsTrue(sut.IsFull());
     }
@@ -95,7 +95,7 @@ public class Tests
         Bag backpack = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(backpack);
 
-        sut.StoreItem("Iron");
+        sut.StoreItem(Item.Iron());
         
         Assert.IsFalse(backpack.IsEmpty());
     }
@@ -106,7 +106,7 @@ public class Tests
         Bag bag = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), bag);
         
-        sut.StoreItem("Iron");
+        sut.StoreItem(Item.Iron());
         
         Assert.IsFalse(bag.IsEmpty());
     }
@@ -118,7 +118,7 @@ public class Tests
         Bag bag = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), fullBag, bag);
         
-        sut.StoreItem("Iron");
+        sut.StoreItem(Item.Iron());
         
         Assert.IsFalse(bag.IsEmpty());
     }
@@ -126,7 +126,7 @@ public class Tests
     [Test]
     public void CheckItemCategory()
     {
-        Item sut = new Item("Leather", "clothes");
+        Item sut = Item.CreateInstance("Leather", "clothes");
         
         Assert.IsTrue(sut.BelongsToCategory("clothes"));
     }
@@ -134,7 +134,7 @@ public class Tests
     [Test]
     public void BelongOnlyToConfiguredCategory()
     {
-        Item sut = new Item("Leather", "clothes");
+        Item sut = Item.CreateInstance("Leather", "clothes");
         
         Assert.IsFalse(sut.BelongsToCategory("metals"));
     }
@@ -142,8 +142,8 @@ public class Tests
     [Test]
     public void ItemEquals()
     {
-        Item leather = new Item("Leather", "clothes");
-        Item sameLeather = new Item("Leather", "clothes");
+        Item leather = Item.CreateInstance("Leather", "clothes");
+        Item sameLeather = Item.CreateInstance("Leather", "clothes");
         
         Assert.AreEqual(leather, sameLeather);
     }
@@ -151,8 +151,8 @@ public class Tests
     [Test]
     public void ItemNotEqualsByName()
     {
-        Item leather = new Item("Leather", "clothes");
-        Item iron = new Item("Iron", "clothes");
+        Item leather = Item.CreateInstance("Leather", "clothes");
+        Item iron = Item.CreateInstance("Iron", "clothes");
         
         Assert.AreNotEqual(leather, iron);
     }
@@ -160,8 +160,8 @@ public class Tests
     [Test]
     public void ItemNotEqualsByCategory()
     {
-        Item leather = new Item("Leather", "clothes");
-        Item metallicLeather = new Item("Leather", "metals");
+        Item leather = Item.CreateInstance("Leather", "clothes");
+        Item metallicLeather = Item.CreateInstance("Leather", "metals");
         
         Assert.AreNotEqual(leather, metallicLeather);
     }
