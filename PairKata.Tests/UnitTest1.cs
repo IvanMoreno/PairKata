@@ -79,4 +79,17 @@ public class Tests
         
         Assert.IsTrue(sut.IsFull());
     }
+
+    [Test]
+    public void DuranceCanBeInstantiated()
+    {
+        Durance sut = new Durance();
+        
+        Assert.IsTrue(true);
+    }
+}
+
+public class Durance
+{
+    
 }
