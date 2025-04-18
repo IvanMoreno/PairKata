@@ -149,12 +149,21 @@ public class Tests
     }
     
     [Test]
-    public void ItemNotEquals()
+    public void ItemNotEqualsByName()
     {
         Item leather = new Item("Leather", "clothes");
         Item iron = new Item("Iron", "clothes");
         
         Assert.AreNotEqual(leather, iron);
+    }
+
+    [Test]
+    public void ItemNotEqualsByCategory()
+    {
+        Item leather = new Item("Leather", "clothes");
+        Item metallicLeather = new Item("Leather", "metals");
+        
+        Assert.AreNotEqual(leather, metallicLeather);
     }
 }
 
