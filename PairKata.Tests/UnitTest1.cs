@@ -83,13 +83,34 @@ public class Tests
     [Test]
     public void DuranceCanBeInstantiated()
     {
-        Durance sut = new Durance();
+        Durance sut = new Durance(Bag.Empty());
         
         Assert.IsTrue(true);
+    }
+
+    [Test]
+    public void DuranceStoresItemInBackpack()
+    {
+        Bag backpack = Bag.Empty();
+        Durance sut = new Durance(backpack);
+
+        sut.StoreItem("Iron");
+        
+        Assert.IsFalse(backpack.IsEmpty());
     }
 }
 
 public class Durance
 {
-    
+    readonly Bag backpack;
+
+    public Durance(Bag backpack)
+    {
+        this.backpack = backpack;
+    }
+
+    public void StoreItem(string iron)
+    {
+        backpack.AddItem(iron);
+    }
 }
