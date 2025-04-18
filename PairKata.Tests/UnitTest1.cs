@@ -26,6 +26,6 @@ public class Tests
     {
         Bag sut = new Bag();
         
-        Assert.AreEqual(sut.IsEmpty( ), true);
+        Assert.IsTrue(sut.IsEmpty());
     }
 }
