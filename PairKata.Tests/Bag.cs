@@ -29,5 +29,4 @@ public class Bag
     {
         return !isEmpty && capacity == 1;
     }
-    
 }
