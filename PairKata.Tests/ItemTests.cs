@@ -12,6 +12,8 @@ namespace PairKata.Tests;
     - [x] Items are not just strings, they have types.
     - [x] Split test class into multiple cohesive classes.
     - [x] Bags have categories.
+    - Obtain items from bags.
+    - Clean bag from items.
     - There is a Sorting spell
     - Each bag can have a category, during the sorting spell only the items that match the category can be placed there.
          {
