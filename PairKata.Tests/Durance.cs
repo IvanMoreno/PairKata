@@ -31,14 +31,18 @@ public class Durance
 
         Bag backpack = storage[0];
         Bag bag = storage[1];
-        foreach (Item currentItem in backpack)
+        IEnumerable<Item> backpackItems = new List<Item>(backpack); 
+        backpack.Clear();
+        foreach (Item currentItem in backpackItems)
         {
-            if (!bag.BelongsTo(currentItem.Category))
-                return;
+            if (!bag.BelongsTo(currentItem.Category) || bag.IsFull())
+            {
+                backpack.AddItem(currentItem);
+                continue;
+            }
             
             bag.AddItem(currentItem);
         }
-        backpack.Clear();
         
     }
 }
