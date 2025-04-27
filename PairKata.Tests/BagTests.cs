@@ -67,4 +67,14 @@ public class BagTests
         Assert.IsTrue(sut.BelongsTo("metals"));
         Assert.IsFalse(sut.BelongsTo("clothes"));
     }
+
+    [Test]
+    public void RetrieveItemFromBag()
+    {
+        Bag sut = Bag.Empty(1);
+        
+        sut.AddItem(Item.Iron());
+        
+        Assert.AreEqual(Item.Iron(), sut.ElementAt(0));
+    }
 }
