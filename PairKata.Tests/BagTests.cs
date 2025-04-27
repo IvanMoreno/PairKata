@@ -77,4 +77,13 @@ public class BagTests
         
         Assert.AreEqual(Item.Iron(), sut.ElementAt(0));
     }
+    
+    [Test]
+    public void BagWithNoCategoryBelongsToNoCategory()
+    {
+        Bag sut = Bag.Empty(2, "");
+        
+        Assert.IsFalse(sut.BelongsTo("metals"));
+        Assert.IsFalse(sut.BelongsTo("clothes"));
+    }
 }
