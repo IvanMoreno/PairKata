@@ -21,4 +21,9 @@ public class Durance
     {
         storage.FirstOrDefault(bag => !bag.IsFull())?.AddItem(item);
     }
+
+    public void CastSortingSpell()
+    {
+        
+    }
 }

@@ -43,4 +43,16 @@ public class DuranceTests
         
         Assert.IsFalse(bag.IsEmpty());
     }
+    
+    [Test]
+    public void SortingSpellWithOneItemDoesNotChangeAnything()
+    {
+        Bag backpack = Bag.Empty(1);
+        Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), backpack);
+        sut.StoreItem(Item.Iron());
+
+        sut.CastSortingSpell();
+        
+        Assert.IsFalse(backpack.IsEmpty());
+    }
 }
