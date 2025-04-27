@@ -15,8 +15,8 @@ namespace PairKata.Tests;
     - [x] Obtain items from bags.
     - [x] Clean bag from items.
     - There is a Sorting spell
-        - Do not move items to bags that doesn't match category
-        - Ignore bag without category if backpack until backpack is full
+        - [x] Do not move items to bags that doesn't match category
+        - [x] Ignore bag without category if backpack until backpack is full
     - Each bag can have a category, during the sorting spell only the items that match the category can be placed there.
          {
             "clothes": ["Leather", "Linen", "Silk", "Wool"],
