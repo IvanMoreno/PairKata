@@ -80,4 +80,16 @@ public class DuranceTests
         Assert.AreEqual(Iron(), backpack.ElementAt(0));
         Assert.IsFalse(clothesBag.Any());
     }
+    
+    [Test]
+    public void SortingKeepsItemsInBackpackIfBagDoesntHaveCategory()
+    {
+        Bag backpack = Bag.WithItems(Iron());
+        Bag clothesBag = Bag.Empty(1, "");
+
+        Durance.CreateWithBackpackAndBags(backpack, clothesBag).CastSortingSpell();
+        
+        Assert.AreEqual(Iron(), backpack.ElementAt(0));
+        Assert.IsFalse(clothesBag.Any());
+    }
 }

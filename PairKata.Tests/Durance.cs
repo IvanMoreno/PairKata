@@ -29,7 +29,7 @@ public class Durance
             return;
         }
 
-        if (storage[1].BelongsTo("clothes"))
+        if (!storage[1].BelongsTo(storage[0].ElementAt(0).Category))
             return;
             
         storage[1].AddItem(storage[0].ElementAt(0));
