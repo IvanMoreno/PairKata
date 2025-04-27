@@ -58,4 +58,13 @@ public class BagTests
         
         Assert.IsTrue(sut.IsFull());
     }
+    
+    [Test]
+    public void BagsCanHaveCategories()
+    {
+        Bag sut = Bag.Empty(2, "metals");
+        
+        Assert.IsTrue(sut.BelongsTo("metals"));
+        Assert.IsFalse(sut.BelongsTo("clothes"));
+    }
 }
