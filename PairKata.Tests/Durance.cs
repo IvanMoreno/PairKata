@@ -29,10 +29,13 @@ public class Durance
             return;
         }
 
-        if (!storage[1].BelongsTo(storage[0].ElementAt(0).Category))
+        Bag backpack = storage[0];
+        Item currentItem = backpack.ElementAt(0);
+        Bag bag = storage[1];
+        if (!bag.BelongsTo(currentItem.Category))
             return;
             
-        storage[1].AddItem(storage[0].ElementAt(0));
-        storage[0].Clear();
+        bag.AddItem(currentItem);
+        backpack.Clear();
     }
 }
