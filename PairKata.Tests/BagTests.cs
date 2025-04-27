@@ -7,7 +7,7 @@ public class BagTests
     {
         Bag sut = Bag.Empty();
         
-        Assert.IsTrue(sut.IsEmpty());
+        Assert.IsFalse(sut.Any());
     }
 
     [Test]
@@ -17,7 +17,7 @@ public class BagTests
 
         sut.AddItem(Item.Leather());
         
-        Assert.IsFalse(sut.IsEmpty());
+        Assert.IsTrue(sut.Any());
     }
 
     [Test]

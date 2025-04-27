@@ -20,7 +20,7 @@ public class DuranceTests
 
         sut.StoreItem(Item.Iron());
         
-        Assert.IsFalse(backpack.IsEmpty());
+        Assert.IsTrue(backpack.Any());
     }
 
     [Test]
@@ -31,7 +31,7 @@ public class DuranceTests
         
         sut.StoreItem(Item.Iron());
         
-        Assert.IsFalse(bag.IsEmpty());
+        Assert.IsTrue(bag.Any());
     }
 
     [Test]
@@ -43,7 +43,7 @@ public class DuranceTests
         
         sut.StoreItem(Item.Iron());
         
-        Assert.IsFalse(bag.IsEmpty());
+        Assert.IsTrue(bag.Any());
     }
     
     [Test]
@@ -55,7 +55,7 @@ public class DuranceTests
 
         sut.CastSortingSpell();
         
-        Assert.IsFalse(backpack.IsEmpty());
+        Assert.IsTrue(backpack.Any());
     }
 
     [Test]
@@ -69,6 +69,6 @@ public class DuranceTests
         
         sut.CastSortingSpell();
         
-        Assert.IsFalse(metalsBag.IsEmpty());
+        Assert.IsTrue(metalsBag.Any());
     }
 }

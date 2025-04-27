@@ -19,11 +19,6 @@ public class Bag : IEnumerable<Item>
         return new Bag(capacity, category);
     }
 
-    public bool IsEmpty()
-    {
-        return this.Count() == 0;
-    }
-
     public bool IsFull()
     {
         return this.Count() == capacity;
