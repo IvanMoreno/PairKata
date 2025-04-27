@@ -14,11 +14,6 @@ public class Bag : IEnumerable<Item>
         this.category = category;
     }
 
-    public static Bag Empty( int capacity = 4, string category = "" )
-    {
-        return new Bag(capacity, category);
-    }
-
     public bool IsFull()
     {
         return this.Count() == capacity;
@@ -32,18 +27,12 @@ public class Bag : IEnumerable<Item>
         items.Add(item);
     }
 
-    public bool BelongsTo(string category)
-    {
-        return this.category == category;
-    }
+    public bool BelongsTo(string category) => this.category == category;
+    public IEnumerator<Item> GetEnumerator() => items.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-    public IEnumerator<Item> GetEnumerator()
+    public static Bag Empty( int capacity = 4, string category = "" )
     {
-        return items.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
+        return new Bag(capacity, category);
     }
 }
