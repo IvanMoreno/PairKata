@@ -10,7 +10,7 @@ namespace PairKata.Tests;
     - [x] items are added to the backpack
     - [x] If the backpack happens to be full, the item is added to the next available bag.
     - [x] Items are not just strings, they have types.
-    - Split test class into multiple cohesive classes.
+    - [x] Split test class into multiple cohesive classes.
     - There is a Sorting spell
     - Each bag can have a category, during the sorting spell only the items that match the category can be placed there.
          {
