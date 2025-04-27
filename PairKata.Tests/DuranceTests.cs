@@ -65,10 +65,11 @@ public class DuranceTests
         Bag backpack = Bag.Empty(1);
         Bag metalsBag = Bag.Empty(1, category);
         Durance sut = Durance.CreateWithBackpackAndBags(backpack, metalsBag);
-        sut.StoreItem(Item.CreateInstance("Iron", category));
+        var itemInBackpack = Item.CreateInstance("Iron", category);
+        sut.StoreItem(itemInBackpack);
         
         sut.CastSortingSpell();
         
-        Assert.IsTrue(metalsBag.Any());
+        Assert.AreEqual(itemInBackpack, metalsBag.ElementAt(0));
     }
 }
