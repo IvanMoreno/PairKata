@@ -30,5 +30,6 @@ public class Durance
         }
         
         storage[1].AddItem(storage[0].ElementAt(0));
+        storage[0].Clear();
     }
 }

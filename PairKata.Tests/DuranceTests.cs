@@ -71,5 +71,6 @@ public class DuranceTests
         sut.CastSortingSpell();
         
         Assert.AreEqual(itemInBackpack, metalsBag.ElementAt(0));
+        Assert.IsFalse(backpack.Any());
     }
 }
