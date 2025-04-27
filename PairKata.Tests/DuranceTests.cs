@@ -58,7 +58,7 @@ public class DuranceTests
     }
 
     [Test]
-    public void MoveItemsToBagsWithTheirCategories()
+    public void SortingMovesItemsToBagsWithTheirCategories()
     {
         Bag backpack = Bag.WithItems(Iron());
         Bag metalsBag = Bag.Empty(1, Iron().Category);
@@ -67,5 +67,17 @@ public class DuranceTests
         
         Assert.AreEqual(Iron(), metalsBag.ElementAt(0));
         Assert.IsFalse(backpack.Any());
+    }
+    
+    [Test]
+    public void SortingKeepsItemsInBackpackIfBagDoesntMatchCategory()
+    {
+        Bag backpack = Bag.WithItems(Iron());
+        Bag clothesBag = Bag.Empty(1, Leather().Category);
+
+        Durance.CreateWithBackpackAndBags(backpack, clothesBag).CastSortingSpell();
+        
+        Assert.AreEqual(Iron(), backpack.ElementAt(0));
+        Assert.IsFalse(clothesBag.Any());
     }
 }
