@@ -30,34 +30,17 @@ public class Durance
         }
 
         Bag backpack = storage[0];
-        Bag bag = storage[1];
-        
         IEnumerable<Item> backpackItems = new List<Item>(backpack); 
         backpack.Clear();
         foreach (Item currentItem in backpackItems)
         {
-            if (!bag.BelongsTo(currentItem.Category) || bag.IsFull())
-            {
-                if (storage.Count() == 3)
-                {
-                    Bag bag2 = storage[2];
-                    if (!bag2.BelongsTo(currentItem.Category) || bag2.IsFull())
-                    {
-                        backpack.AddItem(currentItem);
-                        continue;
-                    }
-                    bag2.AddItem(currentItem);
-                    continue;
-                }
-                else
-                {
-                    backpack.AddItem(currentItem);
-                    continue;
-                }
-            }
-            
-            bag.AddItem(currentItem);
+            asldfjkhaeiruodg(currentItem).AddItem(currentItem);
         }
         
+    }
+
+    public Bag asldfjkhaeiruodg( Item item )
+    {
+        return storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(item.Category)) ?? storage[0];
     }
 }
