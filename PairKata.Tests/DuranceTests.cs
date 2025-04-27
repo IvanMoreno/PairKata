@@ -1,4 +1,4 @@
-using NUnit.Framework.Internal;
+using static PairKata.Tests.Item;
 
 namespace PairKata.Tests;
 
@@ -18,7 +18,7 @@ public class DuranceTests
         Bag backpack = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(backpack);
 
-        sut.StoreItem(Item.Iron());
+        sut.StoreItem(Iron());
         
         Assert.IsTrue(backpack.Any());
     }
@@ -29,7 +29,7 @@ public class DuranceTests
         Bag bag = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), bag);
         
-        sut.StoreItem(Item.Iron());
+        sut.StoreItem(Iron());
         
         Assert.IsTrue(bag.Any());
     }
@@ -41,7 +41,7 @@ public class DuranceTests
         Bag bag = Bag.Empty();
         Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), fullBag, bag);
         
-        sut.StoreItem(Item.Iron());
+        sut.StoreItem(Iron());
         
         Assert.IsTrue(bag.Any());
     }
@@ -49,9 +49,8 @@ public class DuranceTests
     [Test]
     public void SortingSpellWithOneItemDoesNotChangeAnything()
     {
-        Bag backpack = Bag.Empty(1);
+        Bag backpack = Bag.WithItems(Iron());
         Durance sut = Durance.CreateWithBackpackAndBags(backpack);
-        sut.StoreItem(Item.Iron());
 
         sut.CastSortingSpell();
         
@@ -61,16 +60,12 @@ public class DuranceTests
     [Test]
     public void MoveItemsToBagsWithTheirCategories()
     {
-        var category = "metals";
-        Bag backpack = Bag.Empty(1);
-        Bag metalsBag = Bag.Empty(1, category);
-        Durance sut = Durance.CreateWithBackpackAndBags(backpack, metalsBag);
-        var itemInBackpack = Item.CreateInstance("Iron", category);
-        sut.StoreItem(itemInBackpack);
+        Bag backpack = Bag.WithItems(Iron());
+        Bag metalsBag = Bag.Empty(1, Iron().Category);
+
+        Durance.CreateWithBackpackAndBags(backpack, metalsBag).CastSortingSpell();
         
-        sut.CastSortingSpell();
-        
-        Assert.AreEqual(itemInBackpack, metalsBag.ElementAt(0));
+        Assert.AreEqual(Iron(), metalsBag.ElementAt(0));
         Assert.IsFalse(backpack.Any());
     }
 }

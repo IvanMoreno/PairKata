@@ -3,12 +3,12 @@ namespace PairKata.Tests;
 public readonly struct Item
 {
     readonly string name;
-    readonly string category;
+    public readonly string Category;
 
     private Item(string name, string category)
     {
         this.name = name;
-        this.category = category;
+        this.Category = category;
     }
 
     public static Item Leather()
@@ -26,5 +26,5 @@ public readonly struct Item
         return new Item(name, category);
     }
 
-    public bool BelongsToCategory(string category) => this.category == category;
+    public bool BelongsToCategory(string category) => this.Category == category;
 }

@@ -38,4 +38,15 @@ public class Bag : IEnumerable<Item>
     {
         return new Bag(capacity, category);
     }
+
+    public static Bag WithItems(params Item[] items)
+    {
+        var result = new Bag(capacity: items.Length, category: string.Empty);
+        foreach (var item in items)
+        {
+            result.AddItem(item);
+        }
+
+        return result;
+    }
 }
