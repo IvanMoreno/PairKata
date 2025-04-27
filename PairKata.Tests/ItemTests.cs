@@ -22,7 +22,7 @@ namespace PairKata.Tests;
           }
     - Sorting spell orders alphabetically
     - When a bag with category is filled during the Sorting Spell, the backpack gets filled with the rest of the items.
-
+    - Create type for categories
  */
 
 public class ItemTests

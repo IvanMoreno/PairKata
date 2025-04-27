@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal;
+
 namespace PairKata.Tests;
 
 public class DuranceTests
@@ -48,11 +50,25 @@ public class DuranceTests
     public void SortingSpellWithOneItemDoesNotChangeAnything()
     {
         Bag backpack = Bag.Empty(1);
-        Durance sut = Durance.CreateWithBackpackAndBags(Bag.Empty(0), backpack);
+        Durance sut = Durance.CreateWithBackpackAndBags(backpack);
         sut.StoreItem(Item.Iron());
 
         sut.CastSortingSpell();
         
         Assert.IsFalse(backpack.IsEmpty());
+    }
+
+    [Test]
+    public void MoveItemsToBagsWithTheirCategories()
+    {
+        var category = "metals";
+        Bag backpack = Bag.Empty(1);
+        Bag metalsBag = Bag.Empty(1, category);
+        Durance sut = Durance.CreateWithBackpackAndBags(backpack, metalsBag);
+        sut.StoreItem(Item.CreateInstance("Iron", category));
+        
+        sut.CastSortingSpell();
+        
+        Assert.IsFalse(metalsBag.IsEmpty());
     }
 }

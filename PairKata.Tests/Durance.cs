@@ -24,6 +24,11 @@ public class Durance
 
     public void CastSortingSpell()
     {
+        if (storage.Count == 1)
+        {
+            return;
+        }
         
+        storage[1].AddItem(new());
     }
 }
