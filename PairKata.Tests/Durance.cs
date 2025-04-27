@@ -30,12 +30,15 @@ public class Durance
         }
 
         Bag backpack = storage[0];
-        Item currentItem = backpack.ElementAt(0);
         Bag bag = storage[1];
-        if (!bag.BelongsTo(currentItem.Category))
-            return;
+        foreach (Item currentItem in backpack)
+        {
+            if (!bag.BelongsTo(currentItem.Category))
+                return;
             
-        bag.AddItem(currentItem);
+            bag.AddItem(currentItem);
+        }
         backpack.Clear();
+        
     }
 }
