@@ -116,4 +116,18 @@ public class DuranceTests
         Assert.AreEqual(1, metalsBag.Count());
         Assert.AreEqual(1, backpack.Count());
     }
+    
+    [Test]
+    public void SortingMovesAllItemsToCategorizedBags()
+    {
+        Bag backpack = Bag.WithItems(Iron(), Leather());
+        Bag metalsBag = Bag.Empty(1, Iron().Category);
+        Bag clothesBag = Bag.Empty(1, Leather().Category);
+
+        Durance.CreateWithBackpackAndBags(backpack, metalsBag, clothesBag).CastSortingSpell();
+        
+        Assert.AreEqual(1, metalsBag.Count());
+        Assert.AreEqual(1, clothesBag.Count());
+        Assert.IsFalse(backpack.Any());
+    }
 }
