@@ -6,7 +6,6 @@ public class Bag : IEnumerable<Item>
 {
     readonly int capacity;
     readonly string category;
-    int itemsCount;
     readonly List<Item> items = new();
 
     private Bag(int capacity, string category)
@@ -22,12 +21,12 @@ public class Bag : IEnumerable<Item>
 
     public bool IsEmpty()
     {
-        return itemsCount == 0;
+        return this.Count() == 0;
     }
 
     public bool IsFull()
     {
-        return itemsCount == capacity;
+        return this.Count() == capacity;
     }
 
     public void AddItem(Item item)
@@ -36,7 +35,6 @@ public class Bag : IEnumerable<Item>
             throw new InvalidOperationException("Cannot add item when bag is full");
             
         items.Add(item);
-        itemsCount++;
     }
 
     public bool BelongsTo(string category)
