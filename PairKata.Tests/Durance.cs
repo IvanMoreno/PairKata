@@ -33,9 +33,10 @@ public class Durance
         ClearStorage();
         foreach (Item currentItem in backpackItems)
         {
-            asldfjkhaeiruodg(currentItem).AddItem(currentItem);
+            var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
+            var availableBag = storage.FirstOrDefault(bag => !bag.IsFull());
+            (storageWithCategory ?? availableBag).AddItem(currentItem);
         }
-        
     }
 
     private void ClearStorage()
@@ -44,10 +45,5 @@ public class Durance
         {
             bag.Clear();
         }
-    }
-
-    public Bag asldfjkhaeiruodg( Item item )
-    {
-        return storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(item.Category)) ?? storage[0];
     }
 }
