@@ -29,7 +29,7 @@ public class Durance
             return;
         }
         
-        IEnumerable<Item> backpackItems = storage.SelectMany(bag => bag);
+        List<Item> backpackItems = storage.SelectMany(bag => bag).ToList();
         ClearStorage();
         foreach (Item currentItem in backpackItems)
         {
