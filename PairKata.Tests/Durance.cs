@@ -31,11 +31,22 @@ public class Durance
         
         List<Item> backpackItems = storage.SelectMany(bag => bag).ToList();
         ClearStorage();
+        List<Item> orphanItems = new();
         foreach (Item currentItem in backpackItems)
         {
             var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
-            var availableBag = storage.FirstOrDefault(bag => !bag.IsFull() && !bag.HasCategory());
-            (storageWithCategory ?? availableBag).AddItem(currentItem);
+            if (storageWithCategory == null)
+            {
+                orphanItems.Add(currentItem);
+                continue;
+            }
+            storageWithCategory.AddItem(currentItem);
+        }
+
+        foreach (var item in orphanItems)
+        {
+            var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
+            availableBag.AddItem(item);
         }
     }
 

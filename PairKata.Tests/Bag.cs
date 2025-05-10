@@ -42,7 +42,12 @@ public class Bag : IEnumerable<Item>
 
     public static Bag WithItems(params Item[] items)
     {
-        var result = new Bag(capacity: items.Length, category: string.Empty);
+        return WithItems(string.Empty, items);
+    }
+    
+    public static Bag WithItems(string category, params Item[] items)
+    {
+        var result = new Bag(capacity: items.Length, category: category);
         foreach (var item in items)
         {
             result.AddItem(item);
