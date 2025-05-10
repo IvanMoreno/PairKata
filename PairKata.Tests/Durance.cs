@@ -29,17 +29,21 @@ public class Durance
             return;
         }
         
-        List<Item> backpackItems = new List<Item>();
-        foreach (Bag bag in storage)
-        {
-            backpackItems.AddRange(bag);
-            bag.Clear();
-        }
+        IEnumerable<Item> backpackItems = storage.SelectMany(bag => bag);
+        ClearStorage();
         foreach (Item currentItem in backpackItems)
         {
             asldfjkhaeiruodg(currentItem).AddItem(currentItem);
         }
         
+    }
+
+    private void ClearStorage()
+    {
+        foreach (Bag bag in storage)
+        {
+            bag.Clear();
+        }
     }
 
     public Bag asldfjkhaeiruodg( Item item )
