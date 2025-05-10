@@ -28,6 +28,7 @@ public class Bag : IEnumerable<Item>
     }
 
     public bool BelongsTo(string category) => this.category == category;
+    public bool HasCategory() => !string.IsNullOrEmpty(category);
     public void Clear() => items.Clear();
 
     public IEnumerator<Item> GetEnumerator() => items.GetEnumerator();

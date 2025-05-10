@@ -25,7 +25,7 @@ namespace PairKata.Tests;
             "weapons": ["Axe", "Dagger", "Mace", "Sword"]
           }
     - Sorting spell orders alphabetically
-    - [] When a bag with category is filled during the Sorting Spell, the backpack gets filled with the rest of the items.
+    - [x] When a bag with category is filled during the Sorting Spell, the backpack gets filled with the rest of the items.
     - [] During sorting spell and when the backpack is full: 
         - sort first the items that have bags with category. 
         - sort the items without bag to non categorized bags. 

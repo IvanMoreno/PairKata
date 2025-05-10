@@ -34,7 +34,7 @@ public class Durance
         foreach (Item currentItem in backpackItems)
         {
             var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
-            var availableBag = storage.FirstOrDefault(bag => !bag.IsFull());
+            var availableBag = storage.FirstOrDefault(bag => !bag.IsFull() && !bag.HasCategory());
             (storageWithCategory ?? availableBag).AddItem(currentItem);
         }
     }
