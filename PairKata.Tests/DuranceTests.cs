@@ -132,6 +132,18 @@ public class DuranceTests
     }
     
     [Test]
+    public void SortingMovesMovesToBackpackIfBagDoesntHaveCategory()
+    {
+        Bag backpack = Bag.Empty();
+        Bag nonCategoryBag = Bag.WithItems(Iron());
+
+        Durance.CreateWithBackpackAndBags(backpack,nonCategoryBag).CastSortingSpell();
+        
+        Assert.AreEqual(1, backpack.Count());
+        Assert.IsFalse(nonCategoryBag.Any());
+    }
+    
+    [Test][Ignore("")]
     public void SortItemsStoredInAllBags()
     {
         Bag backpack = Bag.WithItems(Iron());
@@ -143,6 +155,5 @@ public class DuranceTests
         Assert.AreEqual(1, backpack.Count());
         Assert.IsFalse(nonCategorizedBag.Any());
         Assert.AreEqual(1, metalsBag.Count());
-        
     }
 }

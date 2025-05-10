@@ -30,8 +30,10 @@ public class Durance
         }
 
         Bag backpack = storage[0];
-        IEnumerable<Item> backpackItems = new List<Item>(backpack); 
+        List<Item> backpackItems = new List<Item>(backpack); 
+        backpackItems.AddRange(storage[1]);
         backpack.Clear();
+        storage[1].Clear();
         foreach (Item currentItem in backpackItems)
         {
             asldfjkhaeiruodg(currentItem).AddItem(currentItem);
