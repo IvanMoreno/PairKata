@@ -28,12 +28,13 @@ public class Durance
         {
             return;
         }
-
-        Bag backpack = storage[0];
-        List<Item> backpackItems = new List<Item>(backpack); 
-        backpackItems.AddRange(storage[1]);
-        backpack.Clear();
-        storage[1].Clear();
+        
+        List<Item> backpackItems = new List<Item>();
+        foreach (Bag bag in storage)
+        {
+            backpackItems.AddRange(bag);
+            bag.Clear();
+        }
         foreach (Item currentItem in backpackItems)
         {
             asldfjkhaeiruodg(currentItem).AddItem(currentItem);
