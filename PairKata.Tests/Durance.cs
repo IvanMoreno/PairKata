@@ -26,10 +26,7 @@ public class Durance
     {
         List<Item> backpackItems = SortedItems();
         ClearStorage();
-        foreach (Item currentItem in backpackItems)
-        {
-            SortItemByCategory(currentItem);
-        }
+        SortItems(backpackItems);
     }
 
     List<Item> SortedItems() => storage.SelectMany(bag => bag).OrderBy(x => x.Name).ToList();
@@ -42,19 +39,15 @@ public class Durance
         }
     }
 
-    private void SortItemByCategory(Item currentItem)
+    void SortItems(List<Item> allItems)
     {
-        var storage = FindBagWithMatchingCategory(currentItem) ?? FindFirstBagWithFreeSpace();
-        storage.AddItem(currentItem);
+        foreach (Item item in allItems)
+        {
+            FindAvailableBagFor(item).AddItem(item);
+        }
     }
 
-    private Bag? FindBagWithMatchingCategory(Item currentItem)
-    {
-        return storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
-    }
-
-    private Bag? FindFirstBagWithFreeSpace()
-    {
-        return storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
-    }
+    Bag? FindAvailableBagFor(Item currentItem) => FindBagWithMatchingCategory(currentItem) ?? FindFirstBagWithFreeSpace();
+    private Bag? FindBagWithMatchingCategory(Item currentItem) => storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
+    private Bag? FindFirstBagWithFreeSpace() => storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
 }
