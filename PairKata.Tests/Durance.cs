@@ -34,20 +34,26 @@ public class Durance
         List<Item> orphanItems = new();
         foreach (Item currentItem in backpackItems)
         {
-            var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
-            if (storageWithCategory == null)
-            {
-                orphanItems.Add(currentItem);
-                continue;
-            }
-            storageWithCategory.AddItem(currentItem);
+            bghuweriohg(currentItem, orphanItems);
+            
         }
+    }
 
-        foreach (var item in orphanItems)
+    private void alghir(Item item)
+    {
+        var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
+        availableBag.AddItem(item);
+    }
+
+    private void bghuweriohg(Item currentItem, List<Item> orphanItems)
+    {
+        var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
+        if (storageWithCategory == null)
         {
-            var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
-            availableBag.AddItem(item);
+            alghir(currentItem);
+            return;
         }
+        storageWithCategory.AddItem(currentItem);
     }
 
     private void ClearStorage()
