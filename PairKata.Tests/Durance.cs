@@ -32,10 +32,12 @@ public class Durance
         }
     }
 
-    private void alghir(Item item)
+    private void ClearStorage()
     {
-        var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
-        availableBag.AddItem(item);
+        foreach (Bag bag in storage)
+        {
+            bag.Clear();
+        }
     }
 
     private void bghuweriohg(Item currentItem)
@@ -49,11 +51,9 @@ public class Durance
         storageWithCategory.AddItem(currentItem);
     }
 
-    private void ClearStorage()
+    private void alghir(Item item)
     {
-        foreach (Bag bag in storage)
-        {
-            bag.Clear();
-        }
+        var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
+        availableBag.AddItem(item);
     }
 }
