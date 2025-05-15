@@ -11,15 +11,10 @@ public readonly struct Item
         this.Category = category;
     }
 
-    public static Item Leather()
-    {
-        return CreateInstance("Leather", "clothes");
-    }
-    
-    public static Item Iron()
-    {
-        return CreateInstance("Iron", "metals");
-    }
+    public static Item Leather() => CreateInstance("Leather", "clothes");
+    public static Item Iron() => CreateInstance("Iron", "metals");
+    public static Item Gold() => CreateInstance("Gold", "metals");
+    public static Item Dagger() => CreateInstance("Dagger", "weapons");
 
     public static Item CreateInstance(string name, string category)
     {

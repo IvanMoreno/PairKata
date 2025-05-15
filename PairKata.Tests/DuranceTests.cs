@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using static PairKata.Tests.Item;
 
 namespace PairKata.Tests;
@@ -203,6 +204,20 @@ public class DuranceTests
         Durance.CreateWithBackpackAndBags(backpack).CastSortingSpell();
         
         Assert.AreEqual(Iron(), backpack.First());
+        Assert.AreEqual(Leather(), backpack.Last());
+    }
+
+    [Test]
+    public void SortItemsAlphabeticallyInSeveralBags()
+    {
+        Bag backpack = Bag.WithItems(Leather(), Iron(), Gold(), Dagger());
+        Bag metalsBag = Bag.Empty(category: Iron().Category);
+        
+        Durance.CreateWithBackpackAndBags(backpack, metalsBag).CastSortingSpell();
+        
+        Assert.AreEqual(Gold(), metalsBag.First());
+        Assert.AreEqual(Iron(), metalsBag.Last());
+        Assert.AreEqual(Dagger(), backpack.First());
         Assert.AreEqual(Leather(), backpack.Last());
     }
 }
