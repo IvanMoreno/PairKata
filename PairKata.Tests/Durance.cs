@@ -31,11 +31,9 @@ public class Durance
         
         List<Item> backpackItems = storage.SelectMany(bag => bag).ToList();
         ClearStorage();
-        List<Item> orphanItems = new();
         foreach (Item currentItem in backpackItems)
         {
-            bghuweriohg(currentItem, orphanItems);
-            
+            bghuweriohg(currentItem);
         }
     }
 
@@ -45,7 +43,7 @@ public class Durance
         availableBag.AddItem(item);
     }
 
-    private void bghuweriohg(Item currentItem, List<Item> orphanItems)
+    private void bghuweriohg(Item currentItem)
     {
         var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
         if (storageWithCategory == null)
