@@ -42,7 +42,7 @@ public class Durance
 
     private void bghuweriohg(Item currentItem)
     {
-        var storageWithCategory = storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
+        var storageWithCategory = FindBagWithMatchingCategory(currentItem);
         if (storageWithCategory == null)
         {
             alghir(currentItem);
@@ -51,9 +51,19 @@ public class Durance
         storageWithCategory.AddItem(currentItem);
     }
 
+    private Bag? FindBagWithMatchingCategory(Item currentItem)
+    {
+        return storage.FirstOrDefault(bag => !bag.IsFull() && bag.BelongsTo(currentItem.Category));
+    }
+
     private void alghir(Item item)
     {
-        var availableBag = storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
+        var availableBag = FindFirstBagWithFreeSpace();
         availableBag.AddItem(item);
+    }
+
+    private Bag? FindFirstBagWithFreeSpace()
+    {
+        return storage.OrderBy(bag => bag.HasCategory()).FirstOrDefault(bag => !bag.IsFull());
     }
 }
