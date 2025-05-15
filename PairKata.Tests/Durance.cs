@@ -24,7 +24,11 @@ public class Durance
 
     public void CastSortingSpell()
     {
-        List<Item> backpackItems = storage.SelectMany(bag => bag).ToList();
+        List<Item> backpackItems = storage
+            .SelectMany(bag => bag)
+            .OrderBy(x => x.Name)
+            .ToList();
+        
         ClearStorage();
         foreach (Item currentItem in backpackItems)
         {

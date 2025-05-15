@@ -2,12 +2,12 @@ namespace PairKata.Tests;
 
 public readonly struct Item
 {
-    readonly string name;
+    public readonly string Name;
     public readonly string Category;
 
     private Item(string name, string category)
     {
-        this.name = name;
+        this.Name = name;
         this.Category = category;
     }
 
@@ -27,4 +27,9 @@ public readonly struct Item
     }
 
     public bool BelongsToCategory(string category) => this.Category == category;
+
+    public override string ToString()
+    {
+        return $"{Name} with category {Category}";
+    }
 }
