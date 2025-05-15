@@ -28,7 +28,7 @@ public class Durance
         ClearStorage();
         foreach (Item currentItem in backpackItems)
         {
-            bghuweriohg(currentItem);
+            SortItemByCategory(currentItem);
         }
     }
 
@@ -40,14 +40,10 @@ public class Durance
         }
     }
 
-    private void bghuweriohg(Item currentItem)
+    private void SortItemByCategory(Item currentItem)
     {
-        if (FindBagWithMatchingCategory(currentItem) == null)
-        {
-            FindFirstBagWithFreeSpace().AddItem(currentItem);
-            return;
-        }
-        FindBagWithMatchingCategory(currentItem).AddItem(currentItem);
+        var storage = FindBagWithMatchingCategory(currentItem) ?? FindFirstBagWithFreeSpace();
+        storage.AddItem(currentItem);
     }
 
     private Bag? FindBagWithMatchingCategory(Item currentItem)
