@@ -10,7 +10,7 @@ pipeline {
     environment {
         DOTNET_ROOT = "C:\\Program Files\\dotnet"
         PATH = "${DOTNET_ROOT};${env.PATH}"
-        REPO_URL = "https://github.com/YourUsername/YourDotNetProject.git"
+        REPO_URL = "https://github.com/IvanMoreno/PairKata.git"
     }
     
     stages {
